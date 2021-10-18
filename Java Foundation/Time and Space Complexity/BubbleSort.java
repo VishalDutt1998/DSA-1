@@ -1,0 +1,64 @@
+import java.io.*;
+import java.util.*;
+
+public class BubbleSort {
+
+    public static void bubbleSort(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 1; j < arr.length - i; j++) {
+                if (isSmaller(arr, j, j - 1) == true) {
+                    swap(arr, j, j - 1);
+                }
+            }
+        }
+    }
+
+    // used for swapping ith and jth elements of array
+    public static void swap(int[] arr, int i, int j) {
+        System.out.println("Swapping " + arr[i] + " and " + arr[j]);
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    // return true if ith element is smaller than jth element
+    public static boolean isSmaller(int[] arr, int i, int j) {
+        System.out.println("Comparing " + arr[i] + " and " + arr[j]);
+        if (arr[i] < arr[j]) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static void print(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+    }
+
+    // public static void bubble(int[] arr, int n) {
+    //     for (int x = 1; x <= arr.length - 1; x++) {
+    //         for (int i = 0; i <= arr.length - 1 - x; i++) {
+    //             if (arr[i + 1] < arr[i]) {
+    //                 // swap(arr,i+1,i);
+    //                 int temp = arr[i + 1];
+    //                 arr[i + 1] = arr[i];
+    //                 arr[i] = temp;
+    //             }
+    //         }
+    //     }
+    // }
+
+    public static void main(String[] args) throws Exception {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = scn.nextInt();
+        }
+        bubbleSort(arr);
+        print(arr);
+    }
+
+}
